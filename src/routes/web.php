@@ -14,8 +14,8 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    
+Route::get('/dashboard', function () {
+
     return view('dashboard');
 });
 
