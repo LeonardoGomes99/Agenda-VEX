@@ -28,6 +28,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="{{ asset('/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
 
 
 
@@ -47,7 +48,7 @@
 
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
-            <a class="sidebar-brand d-flex align-items-center " href="/">
+            <a class="sidebar-brand d-flex align-items-center " href="/dashboard">
                 
                 <div class="sidebar-brand-text mx-2">Agenda de Contatos</div>
 
@@ -56,7 +57,7 @@
             <hr class="sidebar-divider my-0">
 
             <li class="nav-item active">
-                <a class="nav-link" href="/">
+                <a class="nav-link" href="/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>

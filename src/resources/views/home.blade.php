@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="{{asset('css/home.css')}}">
 <script src="{{asset('js/home-code.js')}}"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+<title>Home</title>
+
 
 
 
