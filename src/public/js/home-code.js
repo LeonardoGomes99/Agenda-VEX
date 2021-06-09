@@ -48,11 +48,11 @@ $(document).ready(function () {
 				success: function(res) {
 					window.location=res.url;
 				},
-				error: function(XMLHttpRequest, textStatus, errorThrown) { 
+				error: function() { 
 					Swal.fire({
 						icon: 'error',
 						title: 'Oops...',
-						html: 'Ocorreu um Erro, Por Favor Tente mais tarde'					
+						html: 'Ocorreu um Erro, O Email já pode ter sido cadastrado'					
 					});
 					 
 				}   

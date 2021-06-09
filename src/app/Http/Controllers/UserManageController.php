@@ -48,7 +48,14 @@ class UserManageController extends Controller
 
                     $model->save();
 
-                    $request->session()->put('info', $request->get('data'));
+                    $request->session()->put('info', $request->input());
+
+                    $details = [
+                        'title'=>'Olá',
+                        'body'=>'Muito Obrigado por Escolher Nossa Agenda '. $FormData['nome']
+                    ];
+
+                    \Mail::to($FormData['email'])->send(new \App\Mail\SendingEmail($details));
 
                     return response()->json(['url'=>url('/dashboard')]);
 

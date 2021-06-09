@@ -16,6 +16,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">   
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" ></script>
+    <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet"></link>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
+
     
 
 
@@ -65,10 +70,19 @@
                 
             </li>
 
+            <!--
             <li class="nav-item">
                 <i class="fab fa-google-plus-g"></i>
                 <a class="nav-link collapsed" href="#utilities" >
                     <span>Vincular Contatos Google</span>
+                </a>                
+            </li>
+            -->
+
+            <li class="nav-item">
+                <i class="fab fa-google-plus-g"></i>
+                <a class="nav-link collapsed" href="/logout" >
+                    <span>LogOut</span>
                 </a>                
             </li>
 
@@ -83,10 +97,9 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     
 
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                            <input type="text" id="tags" class="form-control bg-light border-0 small" placeholder="..."
                                 aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
@@ -94,7 +107,6 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
 
 
 
@@ -103,7 +115,6 @@
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="material-icons">search</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
@@ -145,10 +156,10 @@
                                 <div class="card-header py-3">                                    
                                 </div>
                                 <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
+                                    <p style="color:white;cursor: context-menu;">SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
                                         CSS bloat and poor page performance. Custom CSS classes are used to create
                                         custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
+                                    <p style="color:white;cursor: context-menu;" class="mb-0">Before working with this theme, you should become familiar with the
                                         Bootstrap framework, especially the utility classes.</p>
                                 </div>
                             </div>
@@ -162,7 +173,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>Copyright &copy; Agenda Vex 2021</span>
                     </div>
                 </div>
             </footer>
@@ -170,7 +181,6 @@
         </div>
 
     </div>
-
 </body>
 
 </html>

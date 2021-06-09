@@ -5,11 +5,11 @@
 <table id="records_table" class="table table-striped">
    <thead>
       <tr>
-         <th scope="col">Nome</th>
-         <th scope="col">Email</th>
-         <th scope="col">Telefone</th>
-         <th scope="col">Celular</th>
-         <th scope="col">Actions</th>
+         <th style="cursor: pointer;" scope="col">Nome</th>
+         <th style="cursor: pointer;" scope="col">Email</th>
+         <th style="cursor: pointer;" scope="col">Telefone</th>
+         <th style="cursor: pointer;" scope="col">Celular</th>
+         <th style="cursor: pointer;" scope="col">Actions</th>
       </tr>
    </thead>
    <tbody>

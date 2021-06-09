@@ -49,17 +49,12 @@ Route::get('/AdicionarContato', function () {
 });
 
 Route::post('/store', [ContactsController::class, 'store']);
+
 Route::get('/get', [ContactsController::class, 'read']);
 
+Route::post('/update', [ContactsController::class, 'update']);
 
-Route::get('/send-email', function(){
-    $details = [
-        'title'=>'Mail From surfisede',
-        'body'=>'This is form testing'
-    ];
-    \Mail::to('leogomes16477@gmail.com')->send(new \App\Mail\SendingEmail($details));
-    echo "Email Enviado";
-});
+Route::post('/delete', [ContactsController::class, 'delete']);
 
 
 
