@@ -94,37 +94,20 @@ function GetAllInputValues() {
         }
     );
 
-
-
-
-    sendToAPI();
-    //ValidateData();
+    ValidateData();
 }
 
 function ValidateData() {
-    if (InputArray['nome'] === "" || InputArray['email'] === "") {
+    if (InputArray['nome'] === "" || InputArray['email'] === "" || InputArray['telefone1'] === "" || InputArray['celular1'] === "") {
         ErrorMessage();
     } else {
-
+        sendToAPI();
     }
 
-
-};
-
-function ErrorMessage() {
-    Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        html: 'Por Favor Preenche os Campos: <br>' +
-            '<b>Nome</b>, <b>Telefone 1</b>, <b>Celular 1</b> <br> ' +
-            'para realizar o Salvamento do Contato'
-    });
 };
 
 
-
-
-function sendToAPI(data) {
+function sendToAPI() {
     $.ajax({
         type: "POST",
         headers: {
@@ -134,8 +117,30 @@ function sendToAPI(data) {
         data: {
             data: InputArray
         },
-        success: function(data) {
-            //console.log(data);
-        }
+        success: function(res) {
+            window.location=res.url;
+        },
+        error: function(data) { 
+            ErrorMessage2();
+        }   
     });
 }
+
+
+function ErrorMessage() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        html: 'Por Favor Preenche os Campos: <br>' +
+            '<b>Nome</b>, <b>Email</b>, <b>Telefone 1</b>, <b>Celular 1</b> <br> ' +
+            'para realizar o Salvamento do Contato'
+    });
+};
+
+function ErrorMessage2() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        html: 'Ocorreu um Erro, Por Favor Tente Novamente ou mais tarde'					
+    });
+};

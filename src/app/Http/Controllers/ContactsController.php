@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Contacts;
+use App\Models\UserManage;
 use Validator;
 
 class ContactsController extends Controller
@@ -12,12 +13,13 @@ class ContactsController extends Controller
 
     public function store(Request $request){
 
+        //return session()->get('info')['email'];
 
         $validator = Validator::make($request->get('data'), [ // <---
             'nome' => 'required',
             'email' => 'required',
-            'tel1' => 'required',
-            'cel1' => 'required',
+            'telefone1' => 'required',
+            'celular1' => 'required',
 
         ]);
 
@@ -25,62 +27,74 @@ class ContactsController extends Controller
             return "Error";
         }
 
+        $result = filter_var($request->get('data')['email'], FILTER_VALIDATE_EMAIL );
+        if($result == TRUE){
 
-        try{
-            $model = new Contacts;
-            $arrayEnd = [];
-            //Organizando Array para enviar ao banco
-            foreach( $request->get('data') as $key => $node){
-                if($key == "rua1" || $key == "bairro1" || $key == "cidade1" || $key == "estado1" ){
-                    $arrayEnd['end'][0][$key] = $node;
+            try{
+                $model = new Contacts;
+                $model1 = new UserManage;
+
+                $arrayEnd = [];
+                //Organizando Array para enviar ao banco
+                foreach( $request->get('data') as $key => $node){
+                    if($key == "rua1" || $key == "bairro1" || $key == "cidade1" || $key == "estado1" ){
+                        $arrayEnd['end'][0][$key] = $node;
+                    }
+
+                    else if($key == "rua2" || $key == "bairro2" || $key == "cidade2" || $key == "estado2" ){
+                        $arrayEnd['end'][1][$key] = $node;
+                    }
+
+                    else if($key == "rua3" || $key == "bairro3" || $key == "cidade3" || $key == "estado3" ){
+                        $arrayEnd['end'][2][$key] = $node;
+                    }else if(str_contains($key, "telefone") ){
+
+                        $arrayEnd['tel'][$key] = $node;
+                    
+                    }else if(str_contains($key, "celular") ){
+
+                        $arrayEnd['cel'][$key] = $node;
+
+                    }else{
+                        $arrayEnd[$key] = $node;
+                    }
+
                 }
 
-                else if($key == "rua2" || $key == "bairro2" || $key == "cidade2" || $key == "estado2" ){
-                    $arrayEnd['end'][1][$key] = $node;
+        
+                foreach ($arrayEnd as $key => $node) { 
+
+                    if($key == "tel" || $key == "cel" || $key == "end"){
+                        $model->$key = json_encode($node);
+                    }else{
+                        $model->$key = $node;
+                    }
                 }
 
-                else if($key == "rua3" || $key == "bairro3" || $key == "cidade3" || $key == "estado3" ){
-                    $arrayEnd['end'][2][$key] = $node;
-                }else if(str_contains($key, "telefone") ){
+                $id_main_user = UserManage::select('id')->where('email', session()->get('info')['email'])->first();
 
-                    $arrayEnd['tel'][$key] = $node;
-                
-                }else if(str_contains($key, "celular") ){
+                $model->id_main_user = $id_main_user['id'];
 
-                    $arrayEnd['cel'][$key] = $node;
+                $model->save();
 
-                }else{
-                    $arrayEnd[$key] = $node;
-                }
+                return response()->json(['url'=>url('/dashboard')]);
+
+            }catch(\Exception $e){
+                return $e->getMessage();
 
             }
 
-    
-            foreach ($arrayEnd as $key => $node) { 
-
-                if($key == "tel" || $key == "cel" || $key == "end"){
-                    $model->$key = json_encode($node);
-                }else{
-                    $model->$key = $node;
-                }
-            }
-
-            $model->save();
-
-            return "Contato Cadastrado com Sucesso";
-
-        }catch(\Exception $e){
-            return $e->getMessage();
-
+        }else{
+            return response()->json(['message' => 'Erro, Não passou pela validação'], 500);
         }
 
     }
 
     public function read(){
-        
-        $posts = Contacts::where('id_main_user', 3)
-                ->orderBy('nome')
-                ->take(10)
+        $id_main_user = UserManage::select('id')->where('email', session()->get('info')['email'])->first();
+
+        $posts = Contacts::where('id_main_user',  $id_main_user['id'])
+                ->orderBy('id')
                 ->get();
 
         return $posts;

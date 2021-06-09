@@ -45,8 +45,8 @@ $(document).ready(function () {
 				data: {
 					data : dataForm
 				},
-				success: function(data) {
-					//window.location.href = "dashboard";
+				success: function(res) {
+					window.location=res.url;
 				},
 				error: function(XMLHttpRequest, textStatus, errorThrown) { 
 					Swal.fire({

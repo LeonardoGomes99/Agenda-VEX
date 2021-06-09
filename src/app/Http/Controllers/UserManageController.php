@@ -48,7 +48,9 @@ class UserManageController extends Controller
 
                     $model->save();
 
-                    return redirect('dashboard');
+                    $request->session()->put('info', $request->get('data'));
+
+                    return response()->json(['url'=>url('/dashboard')]);
 
                 }catch(\Exception $e){
                     return response()->json(['message' => 'Erro, Não passou pela validação'], 500);
