@@ -1,66 +1,49 @@
-<html>
-<head>
-    <link href="Style.css" rel="stylesheet" />
-    <title>Facebook Login Page Html Code With CSS (Free Download)!</title>
-</head>
-<body>
-    <div id="header_wrapper">
-        <div id="header">
 
-            <form action="post">
-                <li>Email or Phone<br><input type="text" name="email"></li>
-                <li>Password<br><input type="password" name="password"><br><a href="">Forgotten account?</a></li>
-                <li><input type="submit" name="login" value="Log In"></li>
-            </form>
+<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        </div>
-    </div>
+<link rel="stylesheet" href="{{asset('css/home.css')}}">
+<script src="{{asset('js/home-code.js')}}"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <div id="wrapper">
 
-        <div id="div1">
 
-        </div>
 
-        <div id="div2">
-            <h1>Create an account</h1>
 
-            <p>It's free and always will be.</p>
-            <li><input type="text" placeholder="First Name" id="Firstname"><input type="text" placeholder="Surname" id="surname"></li>
-            <li><input type="text" placeholder="Mobile number or email"></li>
-            <li><input type="password" placeholder="New password"></li>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<h2>Agenda Vex</h2>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form>
+			<h1>Criar um Conta</h1>			
+			<input id="nome-r" type="text" placeholder="Nome" />
+			<input id="email-r" type="email" placeholder="Email" />
+			<input id="senha-r" type="password" placeholder="Senha" />
+			<input id="senhav-r" type="password" placeholder="Digite a Senha Novamente" />
+			<input type="button" id="Registrar" style="background-color:#4e73df;border: white;color:white" value="Registrar">
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form>
+			<h1>Login</h1>			
+			<input id="email-l" type="email" placeholder="Email" />
+			<input id="senha-l" type="password" placeholder="Senha" />
+			<input type="button" id="Login" style="background-color:#4e73df;border: white;color:white" value="Entrar">
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Bem Vindo de Volta</h1>
+				<p>Para se manter conectado conosco, faça o login com suas informações pessoais</p>
+				<button class="ghost" id="signIn">Login</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Olá Amigo(a)!</h1>
+				<p>Insira seus dados pessoais e comece a jornada conosco</p>
+				<button class="ghost" id="signUp">Registrar</button>
+			</div>
+		</div>
+	</div>
+</div>
 
-            <p>Birthday</p>
-
-            <li>
-                <select><option>Day</option></select>
-                <select><option>Month</option></select>
-                <select><option>Year</option></select>
-                <a href="">Why do I need to provide my date of birth?</a>
-            </li>
-
-            <li><input type="radio">Female <input type="radio">Male</li>
-            <li id="terms">By clicking Create an account, you agree to our <a href="">Terms</a> and that <br>you have read our <a href="">Data Policy</a>, including our <a href="">Cookie Use</a>.</li>
-            <li><input type="submit" value="Create an account"></li>
-            <li id="create_page"><a href="">Create a Page</a> for a celebrity, band or business.</li>
-        </div>
-
-    </div>
-
-    <div id="footer_wrapper">
-
-        <div id="footer1">
-            English (UK) <a href="">हिन्दी</a><a href="">ਪੰਜਾਬੀ</a><a href=""> اردو</a><a href="">தமிழ்</a><a href="">বাংলা</a><a href="">मराठी</a><a href="">తెలుగు</a><a href="">ગુજરાતી</a><a href="">ಕನ್ನಡ</a><a href="">മലയാളം</a>
-        </div>
-        <div id="footer2">
-
-            <a href="#">Sign Up</a><a href="#">Log In</a><a href="#">Messenger</a><a href="#">DotNetTec</a><a href="#">Mobile</a><a href="#">Find Friends</a>
-            <a href="#">Badges</a><a href="#">People</a><a href="#">Pages</a><a href="#">Places</a><a href="#">Games</a><a href="#">Locations</a>
-            <a href="">Celebrities</a><a href="">Groups</a><a href="">Moments</a><a href="">About</a>
-            <a href="">Create Advert</a><a href="">Create Page</a><a href="">Developers</a>
-            <a href="">Careers</a><a href="">Privacy</a><a href="">Cookies</a><a href="">Ads</a><a href="">Terms</a><a href="">Help</a>
-
-        </div>
-    </div>
-</body>
-</html>

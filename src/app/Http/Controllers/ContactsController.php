@@ -14,7 +14,11 @@ class ContactsController extends Controller
 
 
         $validator = Validator::make($request->get('data'), [ // <---
-            'nome' => 'required'
+            'nome' => 'required',
+            'email' => 'required',
+            'tel1' => 'required',
+            'cel1' => 'required',
+
         ]);
 
         if ($validator->fails()) {
