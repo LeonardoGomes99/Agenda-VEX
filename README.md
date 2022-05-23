@@ -1,5 +1,4 @@
-# Agenda-VExpenses
-Projeto para o processo seletivo da VExpenses
+# Agenda-Vex
 
 Localhost:7000
 
